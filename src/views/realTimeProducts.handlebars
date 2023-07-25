@@ -1,0 +1,62 @@
+<h2 class='text-center'>Ingresar Producto</h2>
+<form id='form-products' class='w-50 m-auto'>
+  <div class='form-floating mb-3'>
+    <input class='form-control' type='text' name='title' id='title' />
+    <label for='floatingInput'>Title</label>
+  </div>
+  <div class='form-floating mb-3'>
+    <input class='form-control' type='text' name='description' id='description' />
+    <label for='floatingInput'>Description</label>
+  </div>
+  <div class='form-floating mb-3'>
+    <input class='form-control' type='number' name='price' id='price' />
+    <label for='floatingInput'>Price</label>
+  </div>
+  <div class='form-floating mb-3'>
+    <input class='form-control' type='text' name='thumbnail' id='thumbnail' />
+    <label for='floatingInput'>Thumbnail</label>
+  </div>
+  <div class='form-floating mb-3'>
+    <input class='form-control' type='text' name='code' id='code' />
+    <label for='floatingInput'>Code</label>
+  </div>
+  <div class='form-floating mb-3'>
+    <input class='form-control' type='number' name='stock' id='stock' />
+    <label for='floatingInput'>Stock</label>
+  </div>
+  <div class='form-floating mb-3'>
+    <input class='form-control' type='text' name='category' id='category' />
+    <label for='floatingInput'>Category</label>
+  </div>
+  <input class='"send' type='submit' value='Ingresar Producto' />
+</form>
+
+<h1>Lista de Productos</h1>
+<div class='row'>
+  <div id='products-list'>
+    {{#each products}}
+      <div class='col-sm-6 mb-3 mb-sm-0'>
+        <div class='card'>
+          <img src='' class='card-img-top' alt='{{thumbnail}}' />
+          <div class='card-body'>
+            <h5 class='card-title'>Title: {{title}}</h5>
+            <p class='card-text'>Description: {{description}}</p>
+          </div>
+          <ul class='list-group list-group-flush'>
+            <li class='list-group-item'>ID: {{id}}</li>
+            <li class='list-group-item'>Price: $ {{price}}</li>
+            <li class='list-group-item'>Code: {{code}}</li>
+            <li class='list-group-item'>Stock: {{stock}}</li>
+            <li class='list-group-item'>Category: {{category}}</li>
+          </ul>
+          <div class='card-body'>
+            <button type='button' class='btn btn-danger' onclick='deleteProduct({{id}})'>Eliminar</button>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+<script src='/socket.io/socket.io.js'></script>
+<script src='/js/index.js'></script>

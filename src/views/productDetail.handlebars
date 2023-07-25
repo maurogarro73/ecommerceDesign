@@ -1,0 +1,22 @@
+<h1>Detalle del producto</h1>
+
+<div class='row'>
+  <div id='products-list'>
+    <div class='col-sm-6 mb-3 mb-sm-0'>
+      <div class='card'>
+        <img src='' class='card-img-top' alt='{{product.thumbnail}}' />
+        <div class='card-body'>
+          <h5 class='card-title'>Title: {{product.title}}</h5>
+          <p class='card-text'>Description: {{product.description}}</p>
+        </div>
+        <ul class='list-group list-group-flush'>
+          <li class='list-group-item'>Price: $ {{product.price}}</li>
+          <li class='list-group-item'>Code: {{product.code}}</li>
+          <li class='list-group-item'>Stock: {{product.stock}}</li>
+          <li class='list-group-item'>Category: {{product.category}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<a href='http://localhost:8080/products'>Volver a productos</a>

@@ -1,0 +1,50 @@
+<script src='/js/carts.js'></script>
+
+<h1>Lista de Productos</h1>
+{{! Pagination }}
+{{#if userSession}}
+  <h3>Bienvenido {{userSession}}</h3>
+  {{#if userSessionisAdmin}}
+    <h5>Admin</h5>
+  {{else}}
+    <h5>User</h5>
+  {{/if}}
+  <a class='cartId' id='{{cart}}' href='http://localhost:8080/auth/perfil'><Button>Ver Perfil</Button></a>
+  <a class='cartId' href='http://localhost:8080/carts/{{cart}}'><Button>Ver Carrito</Button></a>
+  <a href='/auth/logout'>Cerrar Sesion</a>
+{{/if}}
+{{#if pagination.hasPrevPage}}
+  <a href='/products?page={{pagination.prevPage}}'>⬅️{{pagination.prevPage}}</a>
+{{/if}}
+<h3>page:{{pagination.page}}</h3>
+{{#if pagination.hasNextPage}}
+  <a href='/products?page={{pagination.nextPage}}'>{{pagination.nextPage}}➡️</a>
+{{/if}}
+{{#each links}}
+  <a href='{{this.href}}'>{{this.label}}</a>
+{{/each}}
+
+<div class='row'>
+  <div id='products-list'>
+    {{#each products}}
+      <div class='col-sm-6 mb-3 mb-sm-0'>
+        <div class='card'>
+          <img src='' class='card-img-top' alt='{{thumbnail}}' />
+          <div class='card-body'>
+            <h5 class='card-title'>Title: {{title}}</h5>
+            <p class='card-text'>Description: {{description}}</p>
+          </div>
+          <ul class='list-group list-group-flush'>
+            <li class='list-group-item'>ID: {{id}}</li>
+            <li class='list-group-item'>Price: $ {{price}}</li>
+            <li class='list-group-item'>Code: {{code}}</li>
+            <li class='list-group-item'>Stock: {{stock}}</li>
+            <li class='list-group-item'>Category: {{category}}</li>
+          </ul>
+          <a href='/products/{{id}}'>Detalle del producto</a>
+          <button onclick="putIntoCart('{{id}}')">Agregar al carrito:</button>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

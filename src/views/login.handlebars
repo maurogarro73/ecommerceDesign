@@ -1,0 +1,33 @@
+<div class='login'>
+  <div class='container-form'>
+    <div class='information'>
+      <div class='info-childs'>
+        <h2>Bienvenido Nuevamente!</h2>
+        <p>Si aún no tienes una cuenta, por favor registrese aquí</p>
+        <a href='/auth/register'><input type='button' value='Registrarse' id='register' /></a>
+      </div>
+    </div>
+    <div class='form-information'>
+      <div class='form-information-childs'>
+        <h2>Iniciar Sesión</h2>
+        <div class='icons'>
+          <a href='/api/sessions/github'>
+            <i class='bx bxl-github'></i>
+          </a>
+        </div>
+        <p>O iniciar sesión con una cuenta</p>
+        <form class='form' action='/auth/login' method='POST'>
+          <label>
+            <i class='bx bx-envelope'></i>
+            <input type='email' name='email' placeholder='Correo electronico' />
+          </label>
+          <label>
+            <i class='bx bx-lock-alt'></i>
+            <input type='password' name='password' placeholder='Contraseña' />
+          </label>
+          <input type='submit' value='Inciar Sesión' />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
