@@ -1,7 +1,6 @@
 <script src='/js/carts.js'></script>
 
 <h1>Lista de Productos</h1>
-{{! Pagination }}
 {{#if userSession}}
   <h3>Bienvenido {{userSession}}</h3>
   {{#if userSessionisAdmin}}
@@ -13,16 +12,6 @@
   <a class='cartId' href='http://localhost:8080/carts/{{cart}}'><Button>Ver Carrito</Button></a>
   <a href='/auth/logout'>Cerrar Sesion</a>
 {{/if}}
-{{#if pagination.hasPrevPage}}
-  <a href='/products?page={{pagination.prevPage}}'>⬅️{{pagination.prevPage}}</a>
-{{/if}}
-<h3>page:{{pagination.page}}</h3>
-{{#if pagination.hasNextPage}}
-  <a href='/products?page={{pagination.nextPage}}'>{{pagination.nextPage}}➡️</a>
-{{/if}}
-{{#each links}}
-  <a href='{{this.href}}'>{{this.label}}</a>
-{{/each}}
 
 <div class='row'>
   <div id='products-list'>
@@ -48,3 +37,15 @@
     {{/each}}
   </div>
 </div>
+
+{{! Pagination }}
+{{#if pagination.hasPrevPage}}
+  <a href='/products?page={{pagination.prevPage}}'>⬅️{{pagination.prevPage}}</a>
+{{/if}}
+<h3>page:{{pagination.page}}</h3>
+{{#if pagination.hasNextPage}}
+  <a href='/products?page={{pagination.nextPage}}'>{{pagination.nextPage}}➡️</a>
+{{/if}}
+{{#each links}}
+  <a href='{{this.href}}'>{{this.label}}</a>
+{{/each}}
